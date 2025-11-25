@@ -26,7 +26,6 @@ pipeline {
             steps {
                 echo "Running Maven Build in Windows..."
                 bat 'mvn clean install -DskipTests'
-                bat 'mvn" clean install -DskipTests'
             }
         }
 
