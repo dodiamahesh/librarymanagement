@@ -36,15 +36,15 @@ pipeline {
             }
         }
 
-        stage('Stop & Remove Old Container') {
-            steps {
-                echo "Stopping old container if exists..."
-                bat '''
-                    docker stop librarymanagement 2>NUL || echo No container running
-                    docker rm librarymanagement 2>NUL || echo No container to remove
-                '''
-            }
-        }
+//         stage('Stop & Remove Old Container') {
+//             steps {
+//                 echo "Stopping old container if exists..."
+//                 bat '''
+//                     docker stop librarymanagement 2>NUL || echo No container running
+//                     docker rm librarymanagement 2>NUL || echo No container to remove
+//                 '''
+//             }
+//         }
 
 //         stage('Run New Docker Container') {
 //             steps {
