@@ -7,6 +7,9 @@ pipeline {
         CONTAINER_NAME = "librarymanagement"
         DOCKERHUB_CREDENTIALS = 'dockerhub-cred'   // Add in Jenkins Credentials
     }
+     tools {
+            maven 'M3911'
+        }
 
     stages {
 
@@ -23,7 +26,7 @@ pipeline {
             steps {
                 echo "Running Maven Build in Windows..."
                 bat 'mvn clean install -DskipTests'
-                bat '"C:\\Program Files\\Maven\\apache-maven-3.9.11\\bin\\ mvn" clean install -DskipTests'
+                bat 'mvn" clean install -DskipTests'
             }
         }
 
