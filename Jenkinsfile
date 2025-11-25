@@ -46,12 +46,12 @@ pipeline {
             }
         }
 
-        stage('Run New Docker Container') {
-            steps {
-                echo "Starting new container..."
-                bat "docker run -d -p 9090:9090 --name %CONTAINER_NAME% %IMAGE_NAME%"
-            }
-        }
+//         stage('Run New Docker Container') {
+//             steps {
+//                 echo "Starting new container..."
+//                 bat "docker run -d -p 9090:9090 --name %CONTAINER_NAME% %IMAGE_NAME%"
+//             }
+//         }
     }
 
     post {
