@@ -1,0 +1,28 @@
+<div class="container" ng-controller="issueBookController" ng-init="getStudentDetail()">
+    <h1 style="text-align:center;color:blue;">{{userfullName}}</h1>
+    <table class="table table-striped" >
+        <thead>
+        <tr>
+            <th scope="col">Book Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Total Copy</a></th>
+            <th scope="col">Availabel Copy</a></th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  data-ng-repeat="book in Books">
+            <td>{{book.bookName}}</td>
+            <td>{{book.author}}</td>
+
+            <td>{{book.totalCopy}}</td>
+            <td>{{book.availableCopy}}</td>
+             <td>
+                <button class="btn btn-outline-success  btn-sm" data-ng-click="bookissue(book)" ng-disabled="book.availableCopy == 0"> Issue</button>
+                 <button class="btn btn-outline-success  btn-sm" data-ng-click="booksubmit(book)" ng-disabled="book.availableCopy==book.totalCopy"> Submit</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+

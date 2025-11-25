@@ -1,0 +1,55 @@
+<div class="container">
+    <h1 style="text-align:center;color:blue;">Enter User Detail</h1>
+    <div class="container ">
+        <form action="" class="form-horizontal" ng-init="isUpdate()">
+            <div class="form-group has-success mb-3 row">
+                <label class="control-label col-sm-2" for="id1">Id</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text"  data-ng-model="User.uid" disabled id="sid" placeholder="Enter your User Name">
+                </div>
+            </div>
+            <div class="form-group has-success mb-3 row">
+                <label class="control-label col-sm-2" for="id1">First Name</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" data-ng-model="User.firstName" id="id1" placeholder="Enter your First Name">
+                </div>
+            </div>
+
+            <div class="form-group has-success mb-3 row">
+                <label class="control-label col-sm-2" for="id2">Last Name</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" data-ng-model="User.lastName" id="id2" placeholder="Enter your Last name">
+                </div>
+            </div>
+            <div class="form-group has-success mb-3 row">
+                <label class="control-label col-sm-2" for="id2">Email </label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" data-ng-model="User.email" id="id2" placeholder="Enter your email">
+                </div>
+            </div>
+            <div class="form-group has-success mb-3 row">
+                <label class="control-label col-sm-2" for="id2">Mobile</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" data-ng-model="User.mobile" id="id2" placeholder="Enter your mobile">
+                </div>
+            </div>
+            <div class="form-group has-success mb-3 row">
+                <label class="control-label col-sm-2" for="id2">User Type</label>
+                <div class="col-sm-6">
+                    <select name="users" ng-model="User.type">
+                        <option value="librarian">Librariann</option>
+                        <option value="student">Student</option>
+
+                    </select>
+                </div>
+            </div>
+            <h3>AngularJS Select Box or Dropdown List Example</h3>
+
+
+            <div class="container ">
+                <button type="button" class="btn btn-primary"data-ng-click="save(User)">OK</button>
+                <a class="btn btn-secondary" href="#/viewUsers"> Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

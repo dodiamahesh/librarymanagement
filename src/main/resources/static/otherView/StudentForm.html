@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS example</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./StudentController.js" type="text/javascript"></script>
+</head>
+<body data-ng-app="app" data-ng-controller="StudentController" ng-init="loadData()">
+<h1>Student Information</h1>
+    <form name="myForm">
+        <table>
+            <tr>
+                <td>Student ID</td>
+                <td><input type="text" ng-model="Student.sid" disabled/></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" data-ng-model="Student.firstName" required /></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" data-ng-model="Student.lastName" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" data-ng-model="Student.email" /></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td><input type="text" data-ng-model="Student.mobile" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Save" data-ng-click="add(Student)" data-ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+  myForm.Student.StudentName.$dirty && myForm.Student.StudentName.$invalid"/>
+                    <input type="submit" value="Update" data-ng-click="save(Student)"/>
+                    <input type="reset" value="Clear"/>
+                    <input type="submit" value="Load all data`" data-ng-click="loadData()"/>
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Address</td>
+                <td>email</td>
+                <td>Phone</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr data-ng-repeat="std in Students">
+                <td>{{std.sid}}</td>
+                <td>{{std.firstName}}</td>
+                <td>{{std.lastName}}</td>
+                <td>{{std.email}}</td>
+                <td>{{std.mobile}}</td>
+                <td><input type="submit" id="Edit" value="Edit" data-ng-click="getSingleData(std.sid)"/></td>
+                <td><input type="submit" id="Delete" value="Delete" data-ng-click="deletecustomer(std.sid)"/></td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>
