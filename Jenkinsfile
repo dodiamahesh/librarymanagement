@@ -21,34 +21,32 @@ pipeline {
 
         stage('Maven Clean & Build') {
             steps {
-                echo "Running Maven Build..."
-                sh 'mvn clean install -DskipTests'
+                echo "Running Maven Build in Windows..."
+                bat 'mvn clean install -DskipTests'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                echo "Building Docker Image..."
-                sh "docker build -t ${IMAGE_NAME} ."
+                echo "Building Docker Image in Windows..."
+                bat "docker build -t %IMAGE_NAME% ."
             }
         }
 
         stage('Stop & Remove Old Container') {
             steps {
                 echo "Stopping old container if exists..."
-                sh """
-                    docker stop ${CONTAINER_NAME} || true
-                    docker rm ${CONTAINER_NAME} || true
-                """
+                bat '''
+                    docker stop librarymanagement 2>NUL || echo No container running
+                    docker rm librarymanagement 2>NUL || echo No container to remove
+                '''
             }
         }
 
         stage('Run New Docker Container') {
             steps {
                 echo "Starting new container..."
-                sh """
-                    docker run -d -p 9090:9090 --name ${CONTAINER_NAME} ${IMAGE_NAME}
-                """
+                bat "docker run -d -p 9090:9090 --name %CONTAINER_NAME% %IMAGE_NAME%"
             }
         }
     }
